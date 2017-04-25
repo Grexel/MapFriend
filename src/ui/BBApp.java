@@ -57,9 +57,22 @@ public class BBApp {
             } else if (choice.equals("rating")) {
                 Collections.sort(list);
             } else if (choice.equals("search")) {
-                ;
+                String name = Validator.getLine(sc, "Enter friend's name: ");
+                for(Friend f : list){
+                    if(f.getName().equalsIgnoreCase(name)){
+                        //found friend, sout
+                        System.out.println(f);
+                    }
+                }
             } else if (choice.equals("range")) {
-                ;
+                int minRating = Validator.getInt(sc, "Enter min rating: ");
+                int maxRating = Validator.getInt(sc, "Enter max rating: ");
+                for(Friend f : list){
+                    if(f.getRating() >= minRating && f.getRating() <= maxRating){
+                        //found friend, sout
+                        System.out.println(f);
+                    }
+                }              
             }
         }
     }
